@@ -2,3 +2,7 @@
 .env.local
 node_modules
 .next
+.DS_Store
+src/.DS_Store
+src/**/*/.DS_store
+public/rss

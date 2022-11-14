@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 
@@ -9,8 +8,6 @@ import {
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
-import logoDrpg from '@/images/logos/drpg.jpeg'
-import logoJump24 from '@/images/logos/jump24.jpeg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -61,68 +58,14 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-function Resume() {
-  let resume = [
-    {
-      company: 'Jump24',
-      title: 'Senior Developer',
-      logo: logoJump24,
-      start: '2021',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
-    },
-    {
-      company: 'drpg',
-      title: 'P Developer',
-      logo: logoDrpg,
-      start: '2021',
-      end: '2013',
-    },
-  ]
-
+function MailIcon(props) {
   return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
-      </h2>
-      <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-            </div>
-            <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Company</dt>
-              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {role.company}
-              </dd>
-              <dt className="sr-only">Role</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {role.title}
-              </dd>
-              <dt className="sr-only">Date</dt>
-              <dd
-                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
-              >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
-              </dd>
-            </dl>
-          </li>
-        ))}
-      </ol>
-    </div>
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
+      />
+    </svg>
   )
 }
 
@@ -131,17 +74,26 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Lee Pownall - Software designer, founder, and amateur astronaut
+          Lee Pownall - Web Developer, runner & cyclist
         </title>
         <meta
           name="description"
           content="I’m Lee, a PHP Developer from the West Midlands. I specialise in Laravel and focus on writing clean, maintainable, and testable code"
         />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@leepownall" />
+        <meta name="twitter:creator" content="@leepownall" />
+        <meta name="twitter:title" content="Lee Pownall" />
+        <meta name="twitter:description" content="Lee Pownall" />
+        <meta property="og:url" content="https://pownall.dev" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Lee Pownall" />
+        <meta property="og:description" content="Personal site of Lee Pownall, occasional blog post." />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Web developer, runner.
+            Web developer, runner & cyclist.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Lee, a PHP Developer from the West Midlands. I specialise in
@@ -159,23 +111,26 @@ export default function Home({ articles }) {
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/lee-pownall"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
+            <SocialLink
+              href="mailto:lee@pownall.uk"
+              icon={MailIcon}
+            >
+              lee@pownall.uk
+            </SocialLink>
           </div>
         </div>
       </Container>
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
             {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+              <div className="block">
+                <Article key={article.slug} article={article} />
+              </div>
             ))}
-          </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Resume />
-          </div>
         </div>
       </Container>
     </>
