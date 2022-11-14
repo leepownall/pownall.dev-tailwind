@@ -12,6 +12,8 @@ import {
 import logoDrpg from '@/images/logos/drpg.jpeg'
 import logoJump24 from '@/images/logos/jump24.jpeg'
 import { formatDate } from '@/lib/formatDate'
+import { generateRssFeed } from '@/lib/generateRssFeed'
+import { getAllArticles } from '@/lib/getAllArticles'
 
 function BriefcaseIcon(props) {
   return (
@@ -73,7 +75,7 @@ function Resume() {
     },
     {
       company: 'drpg',
-      title: 'PHP Developer',
+      title: 'P Developer',
       logo: logoDrpg,
       start: '2021',
       end: '2013',
