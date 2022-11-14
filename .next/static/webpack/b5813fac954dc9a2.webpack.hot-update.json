@@ -1,1 +1,0 @@
-{"c":["pages/about","webpack"],"r":["pages/articles"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2FUsers%2Fleepownall%2Fcode%2Fpownall.dev%2Fsrc%2Fpages%2Farticles%2Findex.jsx&page=%2Farticles!","./src/components/Card.jsx","./src/components/SimpleLayout.jsx","./src/lib/formatDate.js","./src/pages/articles/index.jsx"]}
