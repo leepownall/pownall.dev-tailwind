@@ -86,7 +86,6 @@ export default function Home({ articles }) {
         <meta name="twitter:title" content="Lee Pownall" />
         <meta name="twitter:description" content="Lee Pownall" />
         <meta property="og:url" content="https://pownall.dev" />
-        <meta property="og:type" content="article" />
         <meta property="og:title" content="Lee Pownall" />
         <meta property="og:description" content="Personal site of Lee Pownall, occasional blog post." />
       </Head>

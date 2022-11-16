@@ -35,6 +35,15 @@ export function ArticleLayout({
       <Head>
         <title>{`${meta.title} - Lee Pownall`}</title>
         <meta name="description" content={meta.description} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@leepownall" />
+        <meta name="twitter:creator" content="@leepownall" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.title} />
+        <meta property="og:url" content={`https://pownall.dev/articles/${meta.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
       </Head>
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
