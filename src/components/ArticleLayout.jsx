@@ -40,7 +40,7 @@ export function ArticleLayout({
         <meta name="twitter:creator" content="@leepownall" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.title} />
-        <meta name="twitter:image" content={`/twitter-cards/${meta.slug}.png`}>
+        <meta name="twitter:image" content={`/twitter-cards/${meta.slug}.png`} />
         <meta property="og:url" content={`https://pownall.dev/articles/${meta.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={meta.title} />
